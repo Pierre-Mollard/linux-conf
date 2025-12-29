@@ -51,4 +51,6 @@ gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libss
 ## Offlines
 
 TODO: add all deps for offline components like lazyvim with C/C++ LSP servers.
+TODO: conf tmux more effecient
+TODO: cleanup and add tmux plugin files (manual for now: https://github.com/catppuccin/tmux)
 

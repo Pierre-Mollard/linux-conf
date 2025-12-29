@@ -13,7 +13,7 @@ if [ -d "~/.config/tmux" ]; then
 fi
 
 ln -sf $DOTFILES/vim/vimrc ~/.vimrc
-ln -sf $DOTFILES/tmux/config/tmux/tmux.conf ~/.config/tmux/.tmux.conf
+ln -sf $DOTFILES/tmux/tmux.conf ~/.tmux.conf
 
 #TODO: automate with loop, make bash distro aware, handle the clangd special conf for esp idf.
 #TODO: maybe remove the double software name in this repo /dotfiles?

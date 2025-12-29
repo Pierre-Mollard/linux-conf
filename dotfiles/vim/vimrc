@@ -7,14 +7,16 @@ set expandtab
 set shiftround
 set shiftwidth=4
 set autoindent
-set tabstop=4
 
 " Number of line below or above cursor at minimum
 set scrolloff=5
 set sidescrolloff=5
 
 set mouse=a
-colorscheme delek
+set termguicolors      " Add this for truecolor if terminal supports
+colorscheme habamax      " Reliable dark builtin
+hi Normal ctermbg=NONE  " Transparent fallback
+hi Search ctermfg=Black
 
 syntax on
 set cursorline
@@ -36,7 +38,6 @@ set laststatus=1
 set ignorecase
 set smartcase
 set incsearch
-hi Search ctermfg=Black
 
 set history=1000
 
@@ -51,9 +52,12 @@ set autochdir
 set showcmd
 
 " Directory to save cache files and backups
-set dir=~/.cache/vim
-set backupdir=~/.cache/vim
+set dir=~/.cache/vim backupdir=~/.cache/vim
+silent! call mkdir(&dir, 'p', 0700)
 
 " Omni completion
-filetype plugin on
+filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
+autocmd FileType c,cpp setlocal omnifunc=ccomplete#Complete
+let mapleader = ' '
+
