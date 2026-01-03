@@ -12,6 +12,7 @@ set autoindent
 set scrolloff=5
 set sidescrolloff=5
 
+syntax on
 set mouse=a
 set termguicolors      " Add this for truecolor if terminal supports
 " colorscheme habamax      " Reliable dark builtin
@@ -19,17 +20,19 @@ colorscheme catppuccin_frappe      " Reliable dark builtin
 hi Normal ctermbg=NONE  " Transparent fallback
 hi Search ctermfg=Black
 
-" Transparent background
-"highlight Normal guibg=NONE ctermbg=NONE
-"highlight NonText guibg=NONE ctermbg=NONE
-"highlight NormalNC guibg=NONE ctermbg=NONE
-"highlight LineNr guibg=NONE
-"highlight Folded guibg=NONE
-"highlight EndOfBuffer guibg=NONE
+" Force transparency (GUI/TrueColor)
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+highlight NormalNC guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight Folded guibg=NONE ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE  " Added: Git gutter/signs column transparency
 
-syntax on
+" Custom Colors
+hi Search ctermfg=Black
+
 set cursorline
-
 set showmode
 set showmatch
 

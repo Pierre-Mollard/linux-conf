@@ -4,29 +4,53 @@ return {
     "catppuccin",
     priority = 1000,
     opts = {
+      lsp_styles = {
+        underlines = {
+          errors = { "undercurl" },
+          hints = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+        },
+      },
       transparent_background = true,
+      -- Some popups (like Lazy) need explicit override
+      custom_highlights = function(colors)
+        return {
+          NormalFloat = { bg = "NONE" },
+          FloatBorder = { bg = "NONE" },
+          FloatTitle = { bg = "NONE" },
+          -- Lazy.nvim specific
+          LazyNormal = { bg = "NONE" },
+          MasonNormal = { bg = "NONE" },
+          Pmenu = { bg = "NONE" }, -- Autocomplete menu
+          PmenuSel = { bg = colors.surface1, fg = "NONE" },
+          TelescopeNormal = { bg = "NONE" },
+          TelescopeBorder = { bg = "NONE" },
+        }
+      end,
       integrations = {
         aerial = true,
         alpha = true,
         cmp = true,
         dashboard = true,
         flash = true,
+        fzf = true,
+        grug_far = true,
         gitsigns = true,
+        headlines = true,
         illuminate = true,
         indent_blankline = { enabled = true },
         leap = true,
         lsp_trouble = true,
         mason = true,
-        markdown = true,
         mini = true,
-        native_lsp = { enabled = true },
+        navic = { enabled = true, custom_bg = "lualine" },
         neotest = true,
-        neotree = true, -- File explorer transparency
+        neotree = true,
         noice = true,
         notify = true,
-        semantic_tokens = true,
+        snacks = true,
         telescope = true,
-        treesitter = true,
         treesitter_context = true,
         which_key = true,
       },
