@@ -7,6 +7,8 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+
+vim.opt.runtimepath:append("/home/pierre/projects/tree-sitter-ptuscript")
 vim.filetype.add({ extension = { ptu = "ptuscript" } })
 
 vim.api.nvim_create_autocmd('User', {
@@ -23,6 +25,14 @@ vim.api.nvim_create_autocmd('User', {
       },
     }
   end
+})
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'ptuscript' },
+  callback = function()
+    vim.treesitter.start()
+    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo[0][0].foldmethod = 'expr'
+  end,
 })
 
 vim.treesitter.language.register('ptuscript', { 'ptu' })
